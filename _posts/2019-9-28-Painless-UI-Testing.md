@@ -8,13 +8,13 @@ UI Testing is a great thing to keep apps maintainable and reliable during its wh
 When test cases don't follow best practices, they become difficult to maintain when the test plans grow.
 Some good practices can be folloed to avoid these issues:
 
-#### 1. Test case naming
-#### 2. Test case structure
-#### 3. UI elements: Access and interaction
-#### 4. Reusing code
-#### 5. Better assertions
+#### - Test case naming
+#### - Test case structure
+#### - UI elements: Access and interaction
+#### - Reusing code
+#### - Better assertions
 
-### 1. Test case naming
+### Test case naming
 Test cases names must be intuitive and understandable. A test case name can follow a syntax like this:
 ```swift
 func test_<what_to_test>_<conditions_of_test>() {
@@ -28,7 +28,7 @@ func test_sendMessage_hello() {
 }
 ```
   
-### 2. Test case structure
+### Test case structure
 Test cases should follow a fixed structure, so the test case can be easily followed step by step. I propose the Gherkin structure:
 ```
 Given the scenario X
@@ -49,7 +49,7 @@ func test_sendMessage_hello() {
 }
 ```
 
-### 3. UI elements: Access and interaction
+### UI elements: Access and interaction
 When you record a tap inside a textfield using the *recording feature* on Xcode, you will end up with something like this:
 ```swift
 app.textfields["Send something..."].tap()
@@ -98,9 +98,9 @@ func test_sendMessage_hello() {
 }
 ```
 
-### 4. Reusing code
+### Reusing code
 
-### 4a. Reusing variables
+### - Reusing variables
 
 For reusing UI element variables through different test cases, they can be initialized on the XCTestCase class setUp method:
 ```swift
@@ -132,7 +132,7 @@ class UITests: XCTestCase {
 
 ```
 
-### 4b. Reusing methods
+### - Reusing methods
 Sometimes we need to check different cases for a single method.
 If we replicate the same instructions in every test case, the code become duplicated.
 For reusing some code between test cases, we can use helper methods. For example, for the next test:
@@ -177,7 +177,7 @@ func test_sendMessage_Hello() {
 ```
 > Remember to avoid helper methods names starting by `test_` as they will be considered a test case by Xcode
 
-### 5. Better assertions
+### Better assertions
 When checking whether everything in the test case went as expected, we will use `XCTAssert`.
 
 > XCTAssert statements indicate whether a condition is OK or it is not.
