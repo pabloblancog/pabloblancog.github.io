@@ -14,6 +14,8 @@ Some good practices can be folloed to avoid these issues:
 #### - Reusing code
 #### - Better assertions
 
+
+
 ### Test case naming
 Test cases names must be intuitive and understandable. A test case name can follow a syntax like this:
 ```swift
