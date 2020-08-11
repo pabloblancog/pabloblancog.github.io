@@ -5,11 +5,8 @@ title: Painless UI Testing
 
 UI Testing is a great thing to keep apps maintainable and reliable during its whole lifecycle, but sometimes could become a big pain.
 
-When test cases don't follow best practices, they become difficult to maintain when the test plans grow:
-- UI Elements changes during development, making tests stop working and needed for refactoring.
-- New requirements over the same UI elements can produce code duplication.
-
-Some improvements can be made in order to avoid these issues. Let's see some:
+When test cases don't follow best practices, they become difficult to maintain when the test plans grow.
+Some good practices can be folloed to avoid these issues. Let's see some:
 
 ### 1. Test case naming
 Test cases names must be intuitive and understandable. A test case name can follow a syntax like this:
