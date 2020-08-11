@@ -26,11 +26,11 @@ func test_sendMessage_hello() {
 ```
   
 ### 2. Test case structure
-Test cases should follow a fixed structure, so the test case can be easily followed step by step. I propose the Gherkin syntax based structure:
+Test cases should follow a fixed structure, so the test case can be easily followed step by step. I propose the Gherkin structure:
 ```
-*Given* the scenario X
-*when* I make the action Y
-*then* I got the result Z
+Given the scenario X
+when I make the action Y
+then I got the result Z
 ```
 In the used test case that sends the message *Hello*:
 ```swift
