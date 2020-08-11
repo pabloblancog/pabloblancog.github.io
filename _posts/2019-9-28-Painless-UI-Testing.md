@@ -5,6 +5,7 @@ title: Painless UI Testing
 
 UI Testing is a great thing to keep apps maintainable and reliable during its whole lifecycle, but sometimes could become a big pain.
 Here we will transform a bad test case into a better one, applying some code refactors.
+
 > Note: it's assumed that the reader knows some basic usage of UI testing.
 
 We have obtained the next test using the Recording feature from Xcode:
