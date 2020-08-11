@@ -108,21 +108,22 @@ class UITests: XCTestCase {
         inputTextField = app.textfields["input_text_field"]
         sendButton = app.buttons["send_button"]
         resultLabel = app.labels["result_label"]
-   }
+    }
+
+    func test_sendMessage_hello() {
+        // Given
+        inputTextField.text = ""
+        let messageToSend = "Hello"
+        // When
+        inputTextField.tap()
+        inputTextField.type("Hello")
+        sendButton.tap()
+        // Then
+        XCTAssert(resultLabel)
+        XCTAssert(resultLabel.text == "How are you?")
+    }
 }
 
-func test_sendMessage_hello() {
-    // Given
-    inputTextField.text = ""
-    let messageToSend = "Hello"
-    // When
-    inputTextField.tap()
-    inputTextField.type("Hello")
-    sendButton.tap()
-    // Then
-    XCTAssert(resultLabel)
-    XCTAssert(resultLabel.text == "How are you?")
-}
 ```
 
 ### 4b. Reusing methods
