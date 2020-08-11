@@ -8,14 +8,6 @@ UI Testing is a great thing to keep apps maintainable and reliable during its wh
 When test cases don't follow best practices, they become difficult to maintain when the test plans grow.
 Some good practices can be folloed to avoid these issues:
 
-#### - Test case naming
-#### - Test case structure
-#### - UI elements: Access and interaction
-#### - Reusing code
-#### - Better assertions
-
-
-
 ### Test case naming
 Test cases names must be intuitive and understandable. A test case name can follow a syntax like this:
 ```swift
