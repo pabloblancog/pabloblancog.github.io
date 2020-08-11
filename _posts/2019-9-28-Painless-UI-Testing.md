@@ -129,7 +129,7 @@ class UITests: XCTestCase {
 ### 4b. Reusing methods
 Sometimes we need to check different cases for a single method.
 If we replicate the same instructions in every test case, the code become duplicated.
-For reusing some code between test cases, we can use helper methods. For example:
+For reusing some code between test cases, we can use helper methods. For example, for the next test:
 
 ```swift
 func test_sendMessage_hello() {
