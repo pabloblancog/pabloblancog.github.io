@@ -4,6 +4,7 @@ title: Painless UI Testing
 ---
 
 UI Testing is a great thing to keep apps maintainable and reliable during its whole lifecycle, but sometimes could become a big pain.
+
 When test cases don't follow best practices, they become difficult to maintain when the test plans grow:
 - UI Elements changes during development, making tests stop working and needed for refactoring.
 - New requirements over the same UI elements can produce code duplication.
@@ -20,7 +21,7 @@ func test_<what_to_test>_<conditions_of_test>() {
 For example, a test case to test sending the message *Hello*:
 ```swift
 func test_sendMessage_hello() {
-...
+    ...
 }
 ```
   
