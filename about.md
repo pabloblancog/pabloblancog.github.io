@@ -2,14 +2,18 @@
 layout: page
 title: About
 permalink: /about/
+published: true
 ---
 
-Some information about you!
+### Let's talk!
 
-### More Information
+- Email: [pabloblancogonzalez@gmail.com](mailto:pabloblancogonzalez@gmail.com)
+- Twitter: [@pabloblancog](https://www.twitter.com/pabloblancog)
 
-A place to include any other types of information that you'd like to include about yourself.
 
-### Contact me
+### Don't miss a post
+To subscribe to new posts via RSS, add the following URL to your feeds:
+https://pabloblan.co/feed.xml
 
-[email@domain.com](mailto:email@domain.com)
+If you don’t yet have an RSS reader installed, I recommend the awesome, free to use, [Feedly](https://feedly.com).
+All new content published on this site is also announced via Twitter @pabloblancog.
