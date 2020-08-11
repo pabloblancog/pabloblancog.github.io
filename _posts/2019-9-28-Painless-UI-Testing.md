@@ -4,67 +4,34 @@ title: Painless UI Testing
 ---
 
 UI Testing is a great thing to keep apps maintainable and reliable during its whole lifecycle, but sometimes could become a big pain.
-Here we will transform a bad test case into a better one, applying some code refactors.
+When test cases don't follow best practices, they become difficult to maintain when the test plans grow:
+- UI Elements changes during development, making tests stop working and needed for refactoring.
+- New requirements over the same UI elements can produce code duplication.
 
-> Note: it's assumed that the reader knows some basic usage of UI testing.
-
-We have obtained the next test using the Recording feature from Xcode:
-```swift
-func test1() {
-    // 1. The user taps in a textfield
-    app.textfields["Send something..."].tap()
-    
-    // 2. The user types the text "Hello"
-    app.textfields["Send something..."].type("Hello")
-    
-    // 3. The user taps send button
-    app.buttons["Send"].tap()
-    
-    // 4. If the text in the label is "How are you?", the text will pass.
-    XCTAssert(app.labels["result"].text == "How are you?")
-}
-```
-
-This code looks understandable and easy to follow, but …
-
-> Test plans become difficult to maintain when they grow
-
-UI Elements can change during development, making tests stop working and needed for refactoring.
-Also, test cases like the one above could provoque code duplication when some new cases using the same UI elements were required.
-
-Some improvements can be made in order to avoid code refactors after every test case creation. Let's see some:
+Some improvements can be made in order to avoid these issues. Let's see some:
 
 ### 1. Test case naming
-Test cases names must be intuitive and understandable. A test case name should follow a syntax like this:
+Test cases names must be intuitive and understandable. A test case name can follow a syntax like this:
 ```swift
-func test_<what_to_test>_<conditions>() {
+func test_<what_to_test>_<conditions_of_test>() {
     ...
 }
 ```
-Where:
-```
-test_: Indicates that this is an Xcode test case method. 
-Note: In case you need a helper function, you must not include this prefix.
-<what_to_test>: Indicates the purpose of your test.
-<conditions>: Indicates the conditions set for the test case.
-```
-
-So, in the previous test case will become this:
+For example, a test case to test sending the message *Hello*:
 ```swift
 func test_sendMessage_hello() {
-    app.textfields["Send something..."].tap()
-    app.textfields["Send something..."].type("Hello")
-    app.buttons["Send"].tap()
-    XCTAssert(app.labels["result"].text == "How are you?")
+...
 }
 ```
   
 ### 2. Test case structure
-Test cases should follow a fixed structure, so the test case can be easily followed step by step. The next structure, based on Gherkin syntax, is:
+Test cases should follow a fixed structure, so the test case can be easily followed step by step. I propose the Gherkin syntax based structure:
 ```
-Given the scenario X, when I make the action X, then I got the result X
+*Given* the scenario X
+*when* I make the action Y
+*then* I got the result Z
 ```
-A title on each step should be included to clarify the structure. In the test case, also an initial configuration is made fo textField and the message to send has been included.
+In the used test case that sends the message *Hello*:
 ```swift
 func test_sendMessage_hello() {
     // Given
@@ -73,23 +40,30 @@ func test_sendMessage_hello() {
     // When
     app.textfields["Send something..."].tap()
     app.textfields["Send something..."].type("Hello")
-    // Then
     app.buttons["Send"].tap()
+    // Then
     XCTAssert(app.labels["result"].text == "How are you?")
 }
 ```
 
 ### 3. UI elements: Access and interaction
-When you record a tap on the textfield directly from the simulator or the device, you will end up with something like this:
+When you record a tap inside a textfield using the *recording feature* on Xcode, you will end up with something like this:
 ```swift
 app.textfields["Send something..."].tap()
 ```
-Xcode detected you tapped on a textfield that has the placeholder *Send something*. If the placeholder is changed in a later code update, the test will stop working, and it will have to be refactored.
-To avoid this scenario, let's use **accessibility identifiers**.
-Accessibility identifiers helps disabled people using apps. Applied to UI testing, they allow to identify elements.
-In the viewController class related to the test, some identifiers can be defined:
+Xcode identifies the textfield by its placeholder (*Send something*). If the placeholder changes in a later code update the test will stop working.
+To avoid this scenario, I will use **accessibility identifiers**.
+
+> **Accessibility identifiers** helps disabled people using apps.
+
+Applied to UI testing, they allow to identify elements.
+In the viewController class related to the test, some identifiers can be defined this way:
 ```swift
 class ViewController: UIViewController {
+
+    func viewDidLoad() {
+    }
+    
     @IBOutlet weak var inputTextField: UITextField! {
         didSet {
             inputTextField.accessibilityIdentifier = "input_text_field"
@@ -133,7 +107,7 @@ class UITests: XCTestCase {
 
 Based on these new variables, a little refactor on the test case can be made. The elements keep identified no matter what their value are (button title, label text, textfield placeholder, etc.).
 ```swift
-func test_sendMessage_Hello() {
+func test_sendMessage_hello() {
     // Given
     textField.text = ""
     let messageToSend = "Hello"
@@ -148,8 +122,24 @@ func test_sendMessage_Hello() {
 ```
 
 ### 4. Reusing methods
-Let's imagine we have some different responses depending on what text we send. New test cases will become very repetitive, and they will duplicate a lot of code.
-For reusing some code between test cases, let's create some helper methods with the most repeated actions in the test cases.
+
+Sometimes we need to check different cases for a single method. For example, some different inputs on a textfield.
+If we replicate the same instructions in every test case, the code become duplicated.
+For reusing some code between test cases, we can use helper methods. For example:
+
+```swift
+func test_sendMessage_hello() {
+    ...
+    // When
+    inputTextField.tap()
+    inputTextField.type("Hello")
+    sendButton.tap()
+    ...
+}
+```
+
+We can create the next helper methods:
+
 ```swift
 func typeTextOnInputBar(_ text: String) {
     inputTextView.tap()
@@ -159,53 +149,50 @@ func tapSendButton() {
     sendButton.tap()
 }
 ```
-Joining this two methods, we get:
+Even better, we can join these two methods into one:
 ```swift
 func sendMessage(_ message: String) {
     typeTextOnInputBar(message)
     tapSendButton()
 }
 ```
-And the test case will be like this:
+So the test case will become:
 ```swift
 func test_sendMessage_Hello() {
-    // Given
-    textField.text = ""
-    let messageToSend = "Hello"
+    ...
     // When
     sendMessage("Hello")
-    // Then
-    XCTAssert(labelResult)
-    XCTAssert(labelResult.text == "How are you?")
+    ...
 }
 ```
+> Remember to avoid creating helper methods named *test_* as they will be considered a test case by Xcode
 
 ### 5. Better assertions
-It's time to check if everything in the test case went as expected. For this purpose, we will use XCTAssert.
+When checking whether everything in the test case went as expected, we will use XCTAssert.
+
 > XCTAssert statements indicate whether a condition is OK or it is not.
+
 An XCTAssert statement is composed like this:
 ```swift
 <XCTAssert>(<condition>, <error_message>)
 ```
 Where:
 ```
-XCAssert: Kind of assertion: eg. XCAssertTrue -> If the condition is true, it is ok.
-condition: The condition we want to check in a string format.
-error_message: The message that is shown if the condition is not fulfilled. This is important, so we get a quick understanding about why the test fails.
+- XCAssert: Kind of assertion: eg. XCAssertTrue -> If the condition is true, it is ok.
+- condition: The condition we want to check in a string format.
+- error_message: The message that is shown if the condition is not fulfilled. This is important, so we get a quick understanding about why the test fails.
 ```
 
-Let's update our test case:
+In the used test case, we will check if the result label text is *How are you?*:
 ```swift
 func test_sendMessage_Hello() {
-    // Given
-    textField.text = ""
-    let messageToSend = "Hello"
-    // When
-    sendMessage("Hello")
+    ...
     // Then
     XCTAssertTrue(labelResult.text == "How are you?", "Invalid text result")
 }
 ```
-Conclusion
-UI testing is an amazing way to test an app, and following the steps explained will make the test cases will be more understandable and maintainable.
-Happy coding!
+
+##Conclusion
+
+UI Testing can be a very productive way to test your interface but making the tests understandable and maintainable can be hard if we don't hold to best practices.
+There are many ways to improve the test cases, I showed you some. Happy coding!
