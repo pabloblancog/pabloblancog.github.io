@@ -42,7 +42,7 @@ func test_<what_to_test>_<conditions>() {
 }
 ```
 Where:
-```swift
+```
 test_: Indicates that this is an Xcode test case method. 
 Note: In case you need a helper function, you must not include this prefix.
 <what_to_test>: Indicates the purpose of your test.
@@ -61,7 +61,7 @@ func test_sendMessage_hello() {
   
 ### 2. Test case structure
 Test cases should follow a fixed structure, so the test case can be easily followed step by step. The next structure, based on Gherkin syntax, is:
-```swift
+```
 Given the scenario X, when I make the action X, then I got the result X
 ```
 A title on each step should be included to clarify the structure. In the test case, also an initial configuration is made fo textField and the message to send has been included.
@@ -109,7 +109,7 @@ class ViewController: UIViewController {
 ```
 
 UI Testing includes some useful methods that can be used to init and reset our test cases shared data.
-```swift
+```
 setUp(): Sets up a test case before it is launched.
 tearDown(): Clears data after the test case finishes.
 ```
