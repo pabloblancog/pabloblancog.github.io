@@ -1,11 +1,11 @@
 ---
 layout: page
-title: Projects
-permalink: /projects/
+title: Work
+permalink: /work/
 published: true
 ---
 
-## Projects
+## Work
 
 The full list is available on my [Github account](https://github.com/pabloblancog)
 
