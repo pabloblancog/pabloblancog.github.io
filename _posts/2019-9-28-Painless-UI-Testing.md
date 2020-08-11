@@ -7,7 +7,6 @@ UI Testing is a great thing to keep apps maintainable and reliable during its wh
 Here we will transform a bad test case into a better one, applying some code refactors.
 > Note: it's assumed that the reader knows some basic usage of UI testing.
 
-## The bad test case
 We have obtained the next test using the Recording feature from Xcode:
 ```
 func test1() {
