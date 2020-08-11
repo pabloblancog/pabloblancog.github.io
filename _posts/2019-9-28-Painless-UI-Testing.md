@@ -32,11 +32,10 @@ Given the scenario X
 when I make the action Y
 then I got the result Z
 ```
-In the used test case that sends the message *Hello*:
+In a test case that sends the message *Hello*:
 ```swift
 func test_sendMessage_hello() {
     // Given
-    textField.text = ""
     let messageToSend = "Hello"
     // When
     app.textfields["Send something..."].tap()
@@ -53,11 +52,11 @@ When you record a tap inside a textfield using the *recording feature* on Xcode,
 app.textfields["Send something..."].tap()
 ```
 Xcode identifies the textfield by its placeholder (*Send something*). If the placeholder changes in a later code update the test will stop working.
-To avoid this scenario, I will use **accessibility identifiers**.
+To avoid this kind of scenarios, a valid solution is using **accessibility identifiers**.
 
-> **Accessibility identifiers** helps disabled people using apps.
+> **Accessibility identifiers** helps disabled people using apps identifying elements to be used by *Voice Over*
 
-Applied to UI testing, they allow to identify elements.
+For UI testing, they are interesting as they allow us to identify elements in tests.
 In the viewController class related to the test, some identifiers can be defined this way:
 ```swift
 class ViewController: UIViewController {
@@ -83,14 +82,24 @@ class ViewController: UIViewController {
 }
 ```
 
-UI Testing includes some useful methods that can be used to init and reset our test cases shared data.
-```
-setUp(): Sets up a test case before it is launched.
-tearDown(): Clears data after the test case finishes.
+On XCUITests, an element on the UI can be accessed by its identifier from an array that includes every UI element of a kind on the current visible screen of the app: app.buttons, app.textfields, app.labels, etc.:
+```swift
+func test_sendMessage_hello() {
+    ...
+    // When
+    app.textfields["input_text_field"].tap()
+    app.textfields["input_text_field"].type("Hello")
+    app.buttons["send_button"].tap()
+    // Then
+    XCTAssert(app.labels["result_label"].text == "How are you?")
+}
 ```
 
-On XCUITests, an element on the UI can be accessed by its identifier from an array that includes every UI element of a kind on the current visible screen of the app: app.buttons, app.textfields, app.labels, etc.
-For the test case, some variables for the UI elements will be initialized on the setUp method:
+### 4. Reusing code
+
+### 4a. Reusing variables
+
+For reusing UI element variables through different test cases, they can be initialized on the XCTestCase class setUp method:
 ```swift
 class UITests: XCTestCase {
     var app: XCUIApplication!
@@ -99,18 +108,15 @@ class UITests: XCTestCase {
     var resultLabel: XCUIElement!
     override func setUp() {
         app = XCUIApplication()
-        sendButton = app.buttons["send_button"]
         inputTextField = app.textfields["input_text_field"]
+        sendButton = app.buttons["send_button"]
         resultLabel = app.labels["result_label"]
    }
 }
-```
 
-Based on these new variables, a little refactor on the test case can be made. The elements keep identified no matter what their value are (button title, label text, textfield placeholder, etc.).
-```swift
 func test_sendMessage_hello() {
     // Given
-    textField.text = ""
+    inputTextField.text = ""
     let messageToSend = "Hello"
     // When
     inputTextField.tap()
@@ -122,9 +128,8 @@ func test_sendMessage_hello() {
 }
 ```
 
-### 4. Reusing methods
-
-Sometimes we need to check different cases for a single method. For example, some different inputs on a textfield.
+### 4b. Reusing methods
+Sometimes we need to check different cases for a single method.
 If we replicate the same instructions in every test case, the code become duplicated.
 For reusing some code between test cases, we can use helper methods. For example:
 
@@ -139,7 +144,7 @@ func test_sendMessage_hello() {
 }
 ```
 
-We can create the next helper methods:
+We can create the next helper methods, allowing reusing *typing* and *tapping* features:
 
 ```swift
 func typeTextOnInputBar(_ text: String) {
@@ -150,7 +155,7 @@ func tapSendButton() {
     sendButton.tap()
 }
 ```
-Even better, we can join these two methods into one:
+For specific cases, we can join these two methods into one:
 ```swift
 func sendMessage(_ message: String) {
     typeTextOnInputBar(message)
