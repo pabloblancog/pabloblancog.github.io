@@ -196,7 +196,7 @@ func test_sendMessage_Hello() {
 }
 ```
 
-##Conclusion
+## Conclusion
 
 UI Testing can be a very productive way to test your interface but making the tests understandable and maintainable can be hard if we don't hold to best practices.
 There are many ways to improve the test cases, I showed you some. Happy coding!
