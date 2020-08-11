@@ -172,7 +172,7 @@ func test_sendMessage_Hello() {
 > Remember to avoid helper methods names starting by *test_* as they will be considered a test case by Xcode
 
 ### 5. Better assertions
-When checking whether everything in the test case went as expected, we will use XCTAssert.
+When checking whether everything in the test case went as expected, we will use ```XCTAssert.
 
 > XCTAssert statements indicate whether a condition is OK or it is not.
 
