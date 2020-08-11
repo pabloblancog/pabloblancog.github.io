@@ -9,7 +9,7 @@ Here we will transform a bad test case into a better one, applying some code ref
 > Note: it's assumed that the reader knows some basic usage of UI testing.
 
 We have obtained the next test using the Recording feature from Xcode:
-```
+```swift
 func test1() {
     // 1. The user taps in a textfield
     app.textfields["Send something..."].tap()
