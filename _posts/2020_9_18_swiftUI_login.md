@@ -289,7 +289,7 @@ var body: some View {
     }
 }
 
-Now we have navigation, we can add a navigation title to the screen, adding the view modifier `navigationBarTitle("Log in")` for including the title.
+Now we have the navigation, we can add a navigation title to the screen, adding the view modifier `navigationBarTitle("Log in")` for including the title.
 
 
 ## Conclusion, where to go?
