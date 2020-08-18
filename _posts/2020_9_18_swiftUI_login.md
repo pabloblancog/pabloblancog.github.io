@@ -155,7 +155,7 @@ In this case we want the elements to be aligned to the top, so we are saying wit
 
 ## 2. Input data saving `@State variables`
 
-If we remember, in the textfields and the toogle previously declared, we have three variables: `$email`, `$password`, `$agreedToTerms`.
+If we remember, in the textfields and the toogle previously declared, we had three variables: `$email`, `$password`, `$agreedToTerms`.
 
 ```
 TextField("Email", text: $email)
