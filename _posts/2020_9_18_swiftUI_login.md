@@ -17,7 +17,7 @@ Create a simple login:
 ## Things you will learn
 
 - Creating a basic SwiftUI layout
-- Using visual elements like `Text`, `Textfield`, `Toogle` and `Button`
+- Declaring and interacting with UI elements like `Text`, `Textfield`, `Toogle` and `Button`
 - Validating non-empty fields
 - Displaying an alert
 
@@ -133,7 +133,9 @@ Body of the button: The view that the button will display. In this case, we are 
 **//7. Bottom spacer** (more info on another episode...)
 
 Once we have filled the vertical stack, how the compiler knows where is the position of it in the vertical axis. Should it be next to the top? Center? Bottom?
+
 The element `Spacer()` tells the compiler that a space must be created on the defined position, so the other elements must be readapted to fit the layout to the screen.
+
 In this case we want the elements to be aligned to the top, so we are saying with `Spacer()` that the bottom includes a free space, so the elements need to go up on the screen.
 
 > If no Spacer() is provided, so the position of the elements cannot be properly calculated, the compiler set by default the stack on the vertical center.
@@ -141,7 +143,74 @@ In this case we want the elements to be aligned to the top, so we are saying wit
 > Play with `Spacer()` moving it between elements or placing it in the first place on the stack.
 
 
-## 3. Validation
+## 2. Input data saving `@State variables`
+
+If we remember, in the textfields and the toogle previously declared, we have three variables: `$email`, `$password`, `$agreedToTerms`.
+
+```
+TextField("Email", text: $email)
+SecureField("Password", text: $password)
+Toggle(isOn: $agreedToTerms)
+```
+These three variables are declared in the class, before the `body View` and save the input state of the elements:
+
+```
+@State private var email = ""
+@State private var password = ""
+@State private var agreedToTerms = false
+```
+    
+`$email` is a string that contains the input data for the email textfield
+`$password` is a string that contains the input data for the password textfield
+`$agreedToTerms` is a boolean value contains with the input data for the toogle
+
+When the user interacts with the elements, these variables automatically get their content updated.
+In the other hand, if these variables are modified, the UI element will be updated too.
+
+## 3. Input data validation
+
+In this example, the `Sign in` button will be enabled when:
+- The User textfield and the Password textfield are not empty (`$email` and `$password`)
+- The toogle is enabled (`$agreedToTerms`)
+
+These variables are referred to the ones stored in the class (explained in the previous point)
+A way to validate whether they are valid could be:
+```
+let isEnabled = !email.isEmpty && !password.isEmpty && agreedToTerms == true
+```
+or if they are invalid:
+```
+let isDisabled = email.isEmpty || password.isEmpty || agreedToTerms == false
+```
+
+## 4. Button update - `View modifier`
+
+Although the input data is validated, the button needs to be updated in order to enable/disable the login.
+```
+// 6. Sign in button
+Button(action: {
+}){
+    Text("Sign in")
+}
+```
+
+SwiftUI allows the developer to modify an element appearance or logic by using `View modifiers`. These modifiers are declared after the element declaration.
+
+```
+// 6. Sign in button
+Button(action: {
+}){
+    Text("Sign in")
+}
+.disabled(email.isEmpty || password.isEmpty || !agreedToTerms)
+
+```
+
+In this case, the line `.disabled(email.isEmpty || password.isEmpty || !agreedToTerms)` indicates that the button will be disabled when the condition inside is fulfilled.
+
+Other cases of modifiers, could be:
+- `.background(Color.red)` for changing the background color
+- `.padding(16)` for adding a 16pt extra padding.
 
 
 ## 4. Success, alert display
