@@ -155,48 +155,51 @@ In this case we want the elements to be aligned to the top, so we are saying wit
 
 ## 2. Input data saving `@State variables`
 
-If we remember, in the textfields and the toogle previously declared, we had three variables: `$email`, `$password`, `$agreedToTerms`.
-
-```
-TextField("Email", text: $email)
-SecureField("Password", text: $password)
-Toggle(isOn: $agreedToTerms)
-```
-These three variables are declared in the class, before the `body View` and save the input state of the elements:
+There were three variables declared in the class before the `body View`:
 
 ```
 @State private var email: String = ""
 @State private var password: String = ""
 @State private var agreedToTerms: Bool = false
 ```
-    
-`$email` is a string that contains the input data for the email textfield
-`$password` is a string that contains the input data for the password textfield
-`$agreedToTerms` is a boolean value contains with the input data for the toogle
+These variables are created to save the input state of the elements:
+`email` is a string that contains the input data for the email textfield
+`password` is a string that contains the input data for the password textfield
+`agreedToTerms` is a boolean value contains with the input data for the toogle
 
-When the user interacts with the elements, these variables automatically get their content updated.
+To save the input data, they are referenced from the UI elements declarations: 
+```
+TextField("Email", text: $email)
+SecureField("Password", text: $password)
+Toggle(isOn: $agreedToTerms)
+```
 
-In the other hand, if these variables are modified, the UI element will be updated too. For example, the toogle needs a initial state, so we include the `false` value to `agreedToTerms`.
+When the user interacts with the UI elements, these variables automatically get their content updated.
+
+In the other hand, if these variables are modified, the UI element will be updated too.
+
+For example, the toogle needs a initial state, so we include the `false` value to `agreedToTerms`.
+When the element is loaded, it will take the current state from it:
+`@State private var agreedToTerms: Bool = false`
 
 ## 3. Input data validation
 
 In this example, the `Sign in` button will be enabled when:
-- The User textfield and the Password textfield are not empty (`$email` and `$password`)
-- The toogle is enabled (`$agreedToTerms`)
+- The email textfield and the password textfield are not empty
+- The toogle is enabled
 
-These variables are referred to the ones stored in the class (explained in the previous point)
 A way to validate whether they are valid could be:
 ```
-let isEnabled = !email.isEmpty && !password.isEmpty && agreedToTerms == true
+let isValidData = !email.isEmpty && !password.isEmpty && agreedToTerms == true
 ```
-or if they are invalid:
+Modifying operators, we can also check if the data is not valid:
 ```
-let isDisabled = email.isEmpty || password.isEmpty || agreedToTerms == false
+let isInvalidData = email.isEmpty || password.isEmpty || agreedToTerms == false
 ```
 
 ## 4. Button update - `View modifier`
 
-Although the input data is validated, the button needs to be updated in order to enable/disable the login.
+Once the input data gets validated, the button needs to be updated in order to enable/disable the login button.
 ```
 // 6. Sign in button
 Button(action: {
@@ -206,7 +209,7 @@ Button(action: {
 }
 ```
 
-SwiftUI allows the developer to modify an element appearance or logic by using `View modifiers`. These modifiers are declared after the element declaration.
+> SwiftUI allows the developer to modify an element appearance or logic by using `View modifiers`. These modifiers must be declared after the element declaration.
 
 ```
 // 6. Sign in button
@@ -219,16 +222,30 @@ Button(action: {
 
 ```
 
-In this case, the line `.disabled(email.isEmpty || password.isEmpty || !agreedToTerms)` indicates that the button will be disabled when the condition inside is fulfilled.
+In this case, `.disabled(email.isEmpty || password.isEmpty || !agreedToTerms)` indicates that the button will be disabled when the input data is not valid.
 
-When the button is enabled and is pressed, the message `Logged in` in the console will be displayed.
+According to the action defined, when the button is enabled and pressed, the message `Logged in` in the console will be displayed.
 
 ## 5. Title and layout fixes
 
-Once we know about view modifiers, we can resolve two problems related to the layout:
+Now we know about view modifiers, we can resolve two pending problems related to the layout:
 
 ### Elements are too close to the screen bounds
-Let's add the modifier `.padding(16)` after the `VStack` container for adding a 16pt extra padding the whole stack view.
+Let's add the modifier `.padding(16)` after the `VStack` container for adding a 16pt extra padding to the whole stack view.
+```
+// 1. Vertical stack
+VStack() {
+
+    // 2. Text
+    Text("Introduce your credentials")
+
+    ...
+            
+    // 7. Bottom spacer
+    Spacer()
+}
+.padding(16)
+```
 
 ### No title provided
 
