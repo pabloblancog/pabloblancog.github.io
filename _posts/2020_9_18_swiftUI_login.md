@@ -36,11 +36,12 @@ struct LoginView: View {
 }
 ```
 
-So, following the layout, we will add the elements:
+So, following the layout, let's add the elements:
 
 ```swift
 struct LoginView: View {
 
+    //0
     @State private var email: String = ""
     @State private var password: String = ""
     @State private var agreedToTerms: Bool = false
@@ -64,11 +65,11 @@ struct LoginView: View {
                     Text("Agree to terms and conditions")
                 }
 
-                // 6. Sign in button
+                // 6. Log in button
                 Button(action: {
                     print("Logged in!")
                 }){
-                    Text("Sign in")
+                    Text("Log in")
                 }
                 
                 // 7. Bottom spacer
@@ -78,96 +79,100 @@ struct LoginView: View {
 }
 ```
 
-> Don't worry about the `@State private var` variables declared on the top, we will go through them later.
+> Don't worry about the //0 variables declared on the top, we will go through them later.
 
-**//1. Vertical stack: `VStack(alignment: .leading, spacing: 10)`**
+**//1. Vertical stack: `VStack()`**
 
 In SwiftUI there are many ways to distribute our content on the screen: Horizontal, Vertical, in layers...
 
 One of them is **VStack**, that means a vertical stack of elements.
 Every element declared inside the container `VStack` will be included in a stack, following the declaration order.
-In this case, our stack will be integrated by a text, two textfields, a toogle and a button (//2 to //6).
+In this case, our stack will be integrated by a text, two textfields, a toogle and a button (`//2 to //6`)
 
-**//2. Text**: `Text("Introduce your credentials")` insert a text on the screen, in this case our screen description.
+**//2. Text**: `Text("Introduce your credentials")` add a text, in this case our screen description.
 
-**//3. Email field**: `TextField("Email", text: $email)` A textfield allows users to add input data to the app. In this case, it will be used for capturing the user's email.
+**//3. Email field**: `TextField("Email", text: $email)` A textfield allows users to add input data. In this case, it is used for capturing the user's email.
 The text `Email` corresponds to the textfield placeholder.
 
 We will talk later about the `text: $email` declaration.
 
 **//4. Password field**: `SecureField("Password", text: $password)`.
 
-It is a type of textfield that allows data input in a secure way, hiding the text with bullets. The string `Password` is its placeholder.
+A `SecureField` is a textfield that allows secure data input, replacing text display with bullets. The string `Password` is its placeholder.
 
 We will talk later about the `text: $password` declaration.
 
 **//5. Toogle to agree T&C**: `Toogle(isOn: ...) {}`
-Toogle allows users to choose a state associated to a property. In our case, we decide if the user accepts the Terms and conditions or he/she doesn't.
+Toogle allows users to set on/off a property. In our case, this toogle represents if the user accepts the Terms and conditions.
 
-The toogle is visually composed horizontally by two elements:
-- Left: Any view. In this case is the text `Text("Agree to terms and conditions")`that we include inside the brackets.
+The toogle is composed by two elements:
+- *Left side*: Any view needed. It should be included inside the brackets. 
+
+In this case is the text `Text("Agree to terms and conditions")` .
 ```
 Toggle(isOn: $agreedToTerms) {
     Text("Agree to terms and conditions")
 }
 ```
-- Right: The toogle control. It is enabled/disabled depending on the variable included after the word `isOn` on `Toggle(isOn: ...)`
+
+- *Right side*: The toogle control. It is enabled/disabled depending on the variable included after the word `isOn` on `Toggle(isOn: ...)`
 
 We will talk later about the `$agreedToTerms` declaration.
 
-**//6. Sign in button**
+**//6. Log in button**
 Defined as: 
 ```
 Button(action: {
     print("Logged in!")
 }){ 
-   Text("Sign in")
+   Text("Log in")
        .frame(minWidth: 0, maxWidth: .infinity)
 }
 ```
 The button has two parts:
-- Action: Indicates the action taken when the button is pressed.
+- *Action*: Indicates the action taken when the button is pressed.
 ```
 action: {
    print("Logged in!")
 }
 ```
 
-- Body of the button: The view that the button will display. In this case, we are displaying the text `Sign in`.
+- *Body of the button*: The view that the button will display. In this case, we are displaying the text `Log in`.
 ```
 {
-    Text("Sign in")
+    Text("Log in")
 }
 ```
 
 **//7. Bottom spacer** (more info on another episode...)
 
-Once we have filled the vertical stack, how does the compiler know the stack vertical position? Should it be next to the top? Center? Bottom?
+Once we have filled the vertical stack, how does the compiler know the elements' vertical position?
 
-The element `Spacer()` tells the compiler that a space must be created on the defined position, so the other elements must be readapted to fit the layout to the screen.
-
-In this case we want the elements to be aligned to the top, so we are saying with `Spacer()` that the bottom includes a free space, so the elements will go up on the screen.
+> The element `Spacer()` tells the compiler that a space must be created on the defined position, so the other elements must be readapted to fit the layout to the screen.
 
 > If no `Spacer()` is provided, so the position of the elements cannot be properly calculated, the compiler set by default the stack vertically centered.
 
-> Play with `Spacer()` by placing it between elements or in the first place on the stack. Run the app to check how the elements are reorganized on the screen.
+In this case we want the elements to be aligned to the top, so we are saying with `Spacer()` that the bottom includes a free space, so the elements will go up on the screen.
+
+*Note:* Place `Spacer()` between elements or in the first place on the stack. Run the app to check how the elements are reorganized on the screen.
 
 
 ## 2. Input data saving `@State variables`
 
-There were three variables declared in the class before the `body View`:
+At the beginning, three variables were declared in the class before the statement `var body: some View {`:
 
 ```
 @State private var email: String = ""
 @State private var password: String = ""
 @State private var agreedToTerms: Bool = false
 ```
+
 These variables are created to save the input state of the elements:
 `email` is a string that contains the input data for the email textfield
 `password` is a string that contains the input data for the password textfield
-`agreedToTerms` is a boolean value contains with the input data for the toogle
+`agreedToTerms` is a boolean value that saves the toogle state
 
-To save the input data, they are referenced from the UI elements declarations: 
+To save the input data, these variables are referenced from the UI elements declarations: 
 ```
 TextField("Email", text: $email)
 SecureField("Password", text: $password)
@@ -176,15 +181,15 @@ Toggle(isOn: $agreedToTerms)
 
 When the user interacts with the UI elements, these variables automatically get their content updated.
 
-In the other hand, if these variables are modified, the UI element will be updated too.
+In the other hand, if one of these variables is modified, the associated UI element will be updated too.
 
-For example, the toogle needs a initial state, so we include the `false` value to `agreedToTerms`.
+In this case, the toogle control needs a initial state, so we include the `false` value to `agreedToTerms`.
 When the element is loaded, it will take the current state from it:
 `@State private var agreedToTerms: Bool = false`
 
 ## 3. Input data validation
 
-In this example, the `Sign in` button will be enabled when:
+In this example, the `Log in` button will be enabled when:
 - The email textfield and the password textfield are not empty
 - The toogle is enabled
 
@@ -201,22 +206,22 @@ let isInvalidData = email.isEmpty || password.isEmpty || agreedToTerms == false
 
 Once the input data gets validated, the button needs to be updated in order to enable/disable the login button.
 ```
-// 6. Sign in button
+// 6. Log in button
 Button(action: {
     print("Logged in!")
 }){
-    Text("Sign in")
+    Text("Log in")
 }
 ```
 
 > SwiftUI allows the developer to modify an element appearance or logic by using `View modifiers`. These modifiers must be declared after the element declaration.
 
 ```
-// 6. Sign in button
+// 6. Log in button
 Button(action: {
     print("Logged in!")
 }){
-    Text("Sign in")
+    Text("Log in")
 }
 .disabled(email.isEmpty || password.isEmpty || !agreedToTerms)
 
@@ -275,11 +280,11 @@ var body: some View {
                 Text("Agree to terms and conditions")
             }
 
-            // 6. Sign in button
+            // 6. Log in button
             Button(action: {
                 print("Logged in!")
             }){
-                Text("Sign in")
+                Text("Log in")
             }
 
             // 7. Bottom spacer
