@@ -1,12 +1,25 @@
 ---
 layout: post
 title: Painless UI Testing
+published: true
 ---
 
-UI Testing is a great thing to keep apps maintainable and reliable during its whole lifecycle, but sometimes could become a big pain.
+UI Testing on iOS projects is a great thing to keep apps solid and reliable during its whole lifecycle, but sometimes could become a big pain.
 
-When test cases don't follow best practices, they become difficult to maintain when the test plans grow.
-Some good practices can be folloed to avoid these issues:
+When test cases don't follow best practices, they become difficult to maintain when the test plans grow. 
+
+## Goal
+We will review some topics related to unit testing, and see some good practices that can be followed to improve our testing.
+
+## Summary
+In this article you will learn about the next topics:
+```
+- Test case naming
+- Test case structure
+- Access and interaction with UI elements
+- Reusing code between test cases
+- Improve assertions in test cases
+```
 
 ### Test case naming
 Test cases names must be intuitive and understandable. A test case name can follow a syntax like this:
@@ -43,7 +56,7 @@ func test_sendMessage_hello() {
 }
 ```
 
-### UI elements: Access and interaction
+### Access and interaction with UI elements
 When you record a tap inside a textfield using the *recording feature* on Xcode, you will end up with something like this:
 ```swift
 app.textfields["Send something..."].tap()
@@ -92,7 +105,7 @@ func test_sendMessage_hello() {
 }
 ```
 
-### Reusing code
+### Reusing code between test cases
 
 ### - Reusing variables
 
@@ -171,7 +184,7 @@ func test_sendMessage_Hello() {
 ```
 > Remember to avoid helper methods names starting by `test_` as they will be considered a test case by Xcode
 
-### Better assertions
+### Improve assertions in test cases
 When checking whether everything in the test case went as expected, we will use `XCTAssert`.
 
 > XCTAssert statements indicate whether a condition is OK or it is not.
@@ -200,3 +213,6 @@ func test_sendMessage_Hello() {
 
 UI Testing can be a very productive way to test your interface but making the tests understandable and maintainable can be hard if we don't hold to best practices.
 There are many ways to improve the test cases, I showed you some. Happy coding!
+
+Do you have any comment about this topic? Send me a message to [pabloblancogonzalez@gmail.com](mailto:pabloblancogonzalez@gmail.com)
+
