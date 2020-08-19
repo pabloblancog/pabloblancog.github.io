@@ -14,12 +14,12 @@ Build a login screen using `SwiftUI` with the next requirements:
 - Field validation: User & password textfields need to be filled and the toogle for Accept Terms and Conditions enabled
 - If enabled, the button will display a message when pressed.
 
-## Topics related
+## Topics you will learn about
 
-- Creating a SwiftUI layout
-- Declaring UI elements: `Text`, `Textfield`, `Toogle` and `Button`
-- Setting and validating input data from these UI elements
-- Wrapping the whole view for navigation
+1.- Creating a SwiftUI layout
+2.- Declaring UI elements: `Text`, `Textfield`, `Toogle` and `Button`
+3.- Setting and validating input data from these UI elements
+4.- Wrapping the whole view for navigation
 
 ## 1. Layout
 
@@ -27,7 +27,7 @@ The layout to create consists of:
 
 > Layout
 
-We start creating a new SwiftUI view class called `LoginView`:
+We start by creating a new SwiftUI view class called `LoginView` (`File > New > File... > SwiftUI View`):
 ```
 struct LoginView: View {
     var body: some View {
@@ -83,9 +83,8 @@ struct LoginView: View {
 
 **//1. Vertical stack: `VStack()`**
 
-In SwiftUI there are many ways to distribute our content on the screen: Horizontal, Vertical, in layers...
-
-One of them is **VStack**, that means a vertical stack of elements.
+In SwiftUI there are many ways to distribute our content on the screen.
+One of them is by using **VStack**, that means a vertical stack of elements.
 Every element declared inside the container `VStack` will be included in a stack, following the declaration order.
 In this case, our stack will be integrated by a text, two textfields, a toogle and a button (`//2 to //6`)
 
@@ -109,7 +108,7 @@ The toogle is composed by two elements:
 - *Left side*: Any view needed. It should be included inside the brackets. 
 
 In this case is the text `Text("Agree to terms and conditions")` .
-```
+```swift
 Toggle(isOn: $agreedToTerms) {
     Text("Agree to terms and conditions")
 }
@@ -121,7 +120,7 @@ We will talk later about the `$agreedToTerms` declaration.
 
 **//6. Log in button**
 Defined as: 
-```
+```swift
 Button(action: {
     print("Logged in!")
 }){ 
@@ -131,14 +130,14 @@ Button(action: {
 ```
 The button has two parts:
 - *Action*: Indicates the action taken when the button is pressed.
-```
+```swift
 action: {
    print("Logged in!")
 }
 ```
 
 - *Body of the button*: The view that the button will display. In this case, we are displaying the text `Log in`.
-```
+```swift
 {
     Text("Log in")
 }
@@ -161,7 +160,7 @@ In this case we want the elements to be aligned to the top, so we are saying wit
 
 At the beginning, three variables were declared in the class before the statement `var body: some View {`:
 
-```
+```swift
 @State private var email: String = ""
 @State private var password: String = ""
 @State private var agreedToTerms: Bool = false
@@ -173,7 +172,7 @@ These variables are created to save the input state of the elements:
 `agreedToTerms` is a boolean value that saves the toogle state
 
 To save the input data, these variables are referenced from the UI elements declarations: 
-```
+```swift
 TextField("Email", text: $email)
 SecureField("Password", text: $password)
 Toggle(isOn: $agreedToTerms)
@@ -194,18 +193,18 @@ In this example, the `Log in` button will be enabled when:
 - The toogle is enabled
 
 A way to validate whether they are valid could be:
-```
+```swift
 let isValidData = !email.isEmpty && !password.isEmpty && agreedToTerms == true
 ```
 Modifying operators, we can also check if the data is not valid:
-```
+```swift
 let isInvalidData = email.isEmpty || password.isEmpty || agreedToTerms == false
 ```
 
 ## 4. Button update - `View modifier`
 
 Once the input data gets validated, the button needs to be updated in order to enable/disable the login button.
-```
+```swift
 // 6. Log in button
 Button(action: {
     print("Logged in!")
@@ -216,7 +215,7 @@ Button(action: {
 
 > SwiftUI allows the developer to modify an element appearance or logic by using `View modifiers`. These modifiers must be declared after the element declaration.
 
-```
+```swift
 // 6. Log in button
 Button(action: {
     print("Logged in!")
@@ -235,29 +234,13 @@ According to the action defined, when the button is enabled and pressed, the mes
 
 Now we know about view modifiers, we can resolve two pending problems related to the layout:
 
-### Elements are too close to the screen bounds
-Let's add the modifier `.padding(16)` after the `VStack` container for adding a 16pt extra padding to the whole stack view.
-```
-// 1. Vertical stack
-VStack() {
-
-    // 2. Text
-    Text("Introduce your credentials")
-
-    ...
-            
-    // 7. Bottom spacer
-    Spacer()
-}
-.padding(16)
-```
-
 ### No title provided
 
-To fix this, we will add a `navigation view`. That means that if we add new independent views and we connect them, we can navigate through them.
+To fix this, we will add a `navigation view`. That means that if we add new independent views and we connect them, we are ready to navigate from one to another.
 
 To achieve this, we will wrap the entire `VStack` container into a `NavigationView` container:
 
+```swift
 var body: some View {
 
     // Navigation container view
@@ -293,9 +276,26 @@ var body: some View {
         .padding(16)
     }
 }
+```
 
 Now we have the navigation, we can add a navigation title to the screen, adding the view modifier `navigationBarTitle("Log in")` for including the title.
 
+### Elements are too close to the screen bounds
+Let's add the modifier `.padding(16)` after the `VStack` container for adding a 16pt extra padding to the whole stack view.
+```swift
+// 1. Vertical stack
+VStack() {
+
+    // 2. Text
+    Text("Introduce your credentials")
+
+    ...
+            
+    // 7. Bottom spacer
+    Spacer()
+}
+.padding(16)
+```
 
 ## Conclusion, where to go?
 
