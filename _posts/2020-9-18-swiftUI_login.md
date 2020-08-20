@@ -4,9 +4,7 @@ title: Basic login with SwiftUI
 published: true
 ---
 
-## Goal
-
-Build a login screen using `SwiftUI` with the next requirements:
+In this article, we will build a login screen using `SwiftUI` with the next requirements:
 - Proposed layout
 - Field validation: User & password textfields need to be filled and the toogle for Accept Terms and Conditions enabled
 - If enabled, the button will display a message when pressed.
