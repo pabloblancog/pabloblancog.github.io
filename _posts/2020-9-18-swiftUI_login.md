@@ -12,8 +12,11 @@ In this article, we will build a login screen using `SwiftUI` with the next requ
 ## Topics you will learn about
 
 1.- Creating a SwiftUI layout
+
 2.- Declaring UI elements: `Text`, `Textfield`, `Toogle` and `Button`
+
 3.- Setting and validating input data from these UI elements
+
 4.- Wrapping the whole view for navigation
 
 ## 1. Layout
