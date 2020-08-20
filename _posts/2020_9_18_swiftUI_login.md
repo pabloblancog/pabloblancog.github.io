@@ -25,7 +25,7 @@ Build a login screen using `SwiftUI` with the next requirements:
 
 The layout to create consists of:
 
-> Layout
+![Login-Layout.jpg]({{site.baseurl}}/_posts/Login-Layout.jpg)
 
 We start by creating a new SwiftUI view class called `LoginView` (`File > New > File... > SwiftUI View`):
 ```
@@ -297,9 +297,10 @@ VStack() {
 .padding(16)
 ```
 
-## Conclusion, where to go?
+## Conclusion
 
-SwiftUI uses a declarative way of creating layouts. It is very comprehensive and easy to use.
+SwiftUI has a lot to offer. It is very comprehensive and easy to use, and developers can create new screens in just minutes. Let's discover together what is this about!
 
-- Custom UI elements -> Custom log in
-- Field validation? More complicated forms? -> Sign up form
+Do you have a topic you want to learn about? Send me an email to [pabloblancogonzalez@gmail.com](mailto:pabloblancogonzalez@gmail.com)
+
+In next articles, we will talk about more complex validation in forms, and custom UI elements.
