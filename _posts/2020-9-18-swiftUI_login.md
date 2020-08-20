@@ -80,7 +80,9 @@ struct LoginView: View {
 Don't worry about the //0 variables declared on the top, we will go through them later.
 
 **// 1. Vertical stack**
-```VStack()```
+```
+VStack()
+```
 
 In SwiftUI there are many ways to distribute our content on the screen.
 One of them is by using **VStack**, that means a vertical stack of elements.
