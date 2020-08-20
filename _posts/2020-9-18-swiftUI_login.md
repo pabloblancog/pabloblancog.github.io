@@ -22,7 +22,7 @@ Build a login screen using `SwiftUI` with the next requirements:
 
 The layout to create consists of:
 
-![Login-Layout.jpg]({{site.baseurl}}/_posts/Login-Layout.jpg)
+![Login-Layout.jpg]({{site.baseurl}}/images/Login-Layout.jpg)
 
 We start by creating a new SwiftUI view class called `LoginView` (`File > New > File... > SwiftUI View`):
 ```
