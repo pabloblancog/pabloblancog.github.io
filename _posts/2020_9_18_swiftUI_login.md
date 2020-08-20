@@ -1,4 +1,6 @@
 ---
+layout: post
+title: Painless UI Testing
 published: true
 ---
 
