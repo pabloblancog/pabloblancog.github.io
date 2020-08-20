@@ -4,11 +4,6 @@ title: Basic login with SwiftUI
 published: true
 ---
 
-
-# Basic login with SwiftUI
-
-`SwiftUI 1.0` `Swift 5.2`
-
 ## Goal
 
 Build a login screen using `SwiftUI` with the next requirements:
