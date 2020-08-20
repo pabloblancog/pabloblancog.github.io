@@ -1,11 +1,11 @@
 ---
 layout: post
-title: Painless UI Testing
+title: Basic login with SwiftUI
 published: true
 ---
 
 
-# Basic login with SwiftUI for beginners
+# Basic login with SwiftUI
 
 `SwiftUI 1.0` `Swift 5.2`
 
