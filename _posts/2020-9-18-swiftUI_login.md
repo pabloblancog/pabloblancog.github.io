@@ -26,7 +26,7 @@ The layout to create consists of:
 ![Login-Layout.jpg]({{site.baseurl}}/images/Login-Layout.jpg)
 
 We start by creating a new SwiftUI view class called `LoginView` (`File > New > File... > SwiftUI View`):
-```
+```swift
 struct LoginView: View {
     var body: some View {
 
@@ -77,46 +77,61 @@ struct LoginView: View {
 }
 ```
 
-> Don't worry about the //0 variables declared on the top, we will go through them later.
+Don't worry about the //0 variables declared on the top, we will go through them later.
 
-**//1. Vertical stack: `VStack()`**
+**// 1. Vertical stack**
+```VStack()```
 
 In SwiftUI there are many ways to distribute our content on the screen.
 One of them is by using **VStack**, that means a vertical stack of elements.
+
 Every element declared inside the container `VStack` will be included in a stack, following the declaration order.
+
 In this case, our stack will be integrated by a text, two textfields, a toogle and a button (`//2 to //6`)
 
-**//2. Text**: `Text("Introduce your credentials")` add a text, in this case our screen description.
+**// 2. Text**: 
+```
+Text("Introduce your credentials")
+```
+This adds a text, in this case our screen description.
 
-**//3. Email field**: `TextField("Email", text: $email)` A textfield allows users to add input data. In this case, it is used for capturing the user's email.
+**// 3. Email field**
+```
+TextField("Email", text: $email)
+```
+A textfield allows users to add input data. In this case, it is used for capturing the user's email.
+
 The text `Email` corresponds to the textfield placeholder.
 
 We will talk later about the `text: $email` declaration.
 
-**//4. Password field**: `SecureField("Password", text: $password)`.
+**// 4. Password field**
+```
+SecureField("Password", text: $password)
+```
 
 A `SecureField` is a textfield that allows secure data input, replacing text display with bullets. The string `Password` is its placeholder.
 
 We will talk later about the `text: $password` declaration.
 
-**//5. Toogle to agree T&C**: `Toogle(isOn: ...) {}`
+**// 5. Toogle to agree T&C**
+```
+Toggle(isOn: $agreedToTerms) {
+    Text("Agree to terms and conditions")
+}
+```
 Toogle allows users to set on/off a property. In our case, this toogle represents if the user accepts the Terms and conditions.
 
 The toogle is composed by two elements:
 - *Left side*: Any view needed. It should be included inside the brackets. 
 
-In this case is the text `Text("Agree to terms and conditions")` .
-```swift
-Toggle(isOn: $agreedToTerms) {
-    Text("Agree to terms and conditions")
-}
-```
+In this case is the text *Agree to terms and conditions*
 
 - *Right side*: The toogle control. It is enabled/disabled depending on the variable included after the word `isOn` on `Toggle(isOn: ...)`
 
 We will talk later about the `$agreedToTerms` declaration.
 
-**//6. Log in button**
+**// 6. Log in button**
 Defined as: 
 ```swift
 Button(action: {
@@ -141,22 +156,22 @@ action: {
 }
 ```
 
-**//7. Bottom spacer** (more info on another episode...)
+**// 7. Bottom spacer** (more info on another episode...)
 
 Once we have filled the vertical stack, how does the compiler know the elements' vertical position?
 
-> The element `Spacer()` tells the compiler that a space must be created on the defined position, so the other elements must be readapted to fit the layout to the screen.
+> The element *Spacer()* tells the compiler that a space must be created on the defined position, so the other elements must be readapted to fit the layout to the screen.
 
-> If no `Spacer()` is provided, so the position of the elements cannot be properly calculated, the compiler set by default the stack vertically centered.
+> If no *Spacer()* is provided, so the position of the elements cannot be properly calculated, the compiler set by default the stack vertically centered.
 
-In this case we want the elements to be aligned to the top, so we are saying with `Spacer()` that the bottom includes a free space, so the elements will go up on the screen.
+In this case we want the elements to be aligned to the top, so we are saying with *Spacer()* that the bottom includes a free space, so the elements will go up on the screen.
 
-*Note:* Place `Spacer()` between elements or in the first place on the stack. Run the app to check how the elements are reorganized on the screen.
+*Note:* Place *Spacer()* between elements or in the first place on the stack. Run the app to check how the elements are reorganized on the screen.
 
 
-## 2. Input data saving `@State variables`
+## 2. Input data saving - @State variables
 
-At the beginning, three variables were declared in the class before the statement `var body: some View {`:
+At the beginning, three variables were declared in the class:
 
 ```swift
 @State private var email: String = ""
@@ -165,9 +180,9 @@ At the beginning, three variables were declared in the class before the statemen
 ```
 
 These variables are created to save the input state of the elements:
-`email` is a string that contains the input data for the email textfield
-`password` is a string that contains the input data for the password textfield
-`agreedToTerms` is a boolean value that saves the toogle state
+*email* is a string that contains the input data for the email textfield
+*password* is a string that contains the input data for the password textfield
+*agreedToTerms* is a boolean value that saves the toogle state
 
 To save the input data, these variables are referenced from the UI elements declarations: 
 ```swift
@@ -180,9 +195,11 @@ When the user interacts with the UI elements, these variables automatically get 
 
 In the other hand, if one of these variables is modified, the associated UI element will be updated too.
 
-In this case, the toogle control needs a initial state, so we include the `false` value to `agreedToTerms`.
+In this case, the toogle control needs a initial state, so we include the *false* value to *agreedToTerms*.
+```
+@State private var agreedToTerms: Bool = false
+```
 When the element is loaded, it will take the current state from it:
-`@State private var agreedToTerms: Bool = false`
 
 ## 3. Input data validation
 
@@ -199,7 +216,7 @@ Modifying operators, we can also check if the data is not valid:
 let isInvalidData = email.isEmpty || password.isEmpty || agreedToTerms == false
 ```
 
-## 4. Button update - `View modifier`
+## 4. Button update - View modifiers
 
 Once the input data gets validated, the button needs to be updated in order to enable/disable the login button.
 ```swift
@@ -211,7 +228,7 @@ Button(action: {
 }
 ```
 
-> SwiftUI allows the developer to modify an element appearance or logic by using `View modifiers`. These modifiers must be declared after the element declaration.
+> SwiftUI allows the developer to modify an element appearance or logic by using **View modifiers**. These modifiers must be declared after the element declaration.
 
 ```swift
 // 6. Log in button
@@ -224,9 +241,9 @@ Button(action: {
 
 ```
 
-In this case, `.disabled(email.isEmpty || password.isEmpty || !agreedToTerms)` indicates that the button will be disabled when the input data is not valid.
+In this case, the button will be disabled when the input data is not valid.
 
-According to the action defined, when the button is enabled and pressed, the message `Logged in` in the console will be displayed.
+According to the action defined, when the button is enabled and pressed, the message *Logged in* in the console will be displayed.
 
 ## 5. Title and layout fixes
 
@@ -234,9 +251,9 @@ Now we know about view modifiers, we can resolve two pending problems related to
 
 ### No title provided
 
-To fix this, we will add a `navigation view`. That means that if we add new independent views and we connect them, we are ready to navigate from one to another.
+To fix this, we will add a *navigation view*. That means that if we add new independent views and we connect them, we are ready to navigate from one to another.
 
-To achieve this, we will wrap the entire `VStack` container into a `NavigationView` container:
+To achieve this, we will wrap the entire *VStack* container into a *NavigationView* container:
 
 ```swift
 var body: some View {
@@ -276,10 +293,13 @@ var body: some View {
 }
 ```
 
-Now we have the navigation, we can add a navigation title to the screen, adding the view modifier `navigationBarTitle("Log in")` for including the title.
+Now we have the navigation, we can add a navigation title to the screen, adding the view modifier for including the title.
+```
+navigationBarTitle("Log in")
+```
 
 ### Elements are too close to the screen bounds
-Let's add the modifier `.padding(16)` after the `VStack` container for adding a 16pt extra padding to the whole stack view.
+Let's add the modifier `.padding(16)` below the `VStack` container for adding a 16pt extra padding to the whole stack view.
 ```swift
 // 1. Vertical stack
 VStack() {
