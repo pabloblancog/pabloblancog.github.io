@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Basic login with SwiftUI
+title: How to create a login screen in SwiftUI
 published: true
 ---
 
