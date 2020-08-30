@@ -4,10 +4,7 @@ title: How to pass an online coding test
 published: true
 ---
 
-During the process to be hired as a developer, you will be probably asked to pass an online coding test.
-
-No matter your experience, this kind of tests can be hard and stressful.
-
+During the process to be hired as a developer, you will be probably asked to pass an online coding test. No matter your experience, this kind of tests can be hard and stressful. 
 In this article, you will get some tips to make your coding test better.
 
 
