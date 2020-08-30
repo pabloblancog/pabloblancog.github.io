@@ -12,7 +12,7 @@ In this article, you will get some tips to make your coding test better.
 
 
 
-## Before starting
+## 1. Prepare the test
 
 ### When to take the test?
 Knowing your best time to code during the day is essential.
@@ -48,7 +48,7 @@ Note: If allowed, **use your daily work tools**. Autocompletion and running/test
 - **Avoid interruptions**: go to the toilet before starting.
 
 
-## Code
+## 2. Code the solution
 
 ### Understand the test problem
 
@@ -70,7 +70,7 @@ Note: If allowed, **use your daily work tools**. Autocompletion and running/test
 
 
 
-## Before submit
+## 3. Submit the code
 
 - Include a **readme/code explanation** for the reviewer.
 - If needed, **comment on any part of the code that could be relevant**.
