@@ -10,12 +10,16 @@ No matter your experience, this kind of tests can be hard and stressful.
 
 In this article, you will get some tips to make your coding test better.
 
+
+
 ## Before starting
 
 ### When to take the test?
 Knowing your best time to code during the day is essential.
 
 In my experience, in the early morning, my brain feels fresher and less tired than any other moment during the day.
+
+
 
 ### Master the coding platform
 
@@ -29,16 +33,23 @@ Some important things you should know before starting code is:
 
 Note: If allowed, **use your daily work tools**. Things like autocompletion and running/testing your code in a known environment is helpful.
 
+
+
 ### Avoid distractions
 - **Use a single tab browser screen**. Close any other tabs that could distract you.
 - **Turn off notifications**: Be focused on the task and try to avoid distractions: Turn off your mobile phone, watch, browser/OS notifications, etc.
 - **Prepare your environment to concentrate at your best**. Does music distract you when coding? Don't play any.
+
+
 
 ### Make your body ready
 - **Have some healthy food and plenty of water**, before coding. Your brain must be energized.
 - **A clean desk** will free your mind and let it focus on the code task.
 - **Have some water near you**: Being hydrated during the test will make you think better.
 - **Avoid interruptions**: go to the toilet before starting coding
+
+
+
 
 ## Code
 
@@ -49,6 +60,8 @@ Note: If allowed, **use your daily work tools**. Things like autocompletion and 
 - Before thinking about a solution, spend some time to **understand every aspect of the problem**.
 - **Identify the average cases, but also the edge ones**.
 
+
+
 ### When coding...
 
 - **Try different approaches**. Think about patterns that could fit. Sometimes, reversing the problem is a good approach.
@@ -57,6 +70,9 @@ Note: If allowed, **use your daily work tools**. Things like autocompletion and 
 - **Make the code understandable**: Indentation, proper variables names, etc. If you are using an IDE that supports linting, use it.
 - **Control the remaining time**: Keep enough time to submit your solution without rushing.
 
+
+
+
 ## Before submit
 
 - Include a **readme/code explanation** for the reviewer.
@@ -64,6 +80,9 @@ Note: If allowed, **use your daily work tools**. Things like autocompletion and 
 - **Remove console outputs** from the code. They could make some tests failing by timeout errors.
 - In case you are coding on an external IDE, bring the latest code to the online platform before submitting it.
 - **Relaunch the tests** to be sure they pass before submitting it.
+
+
+
 
 ## Conclusion
 
