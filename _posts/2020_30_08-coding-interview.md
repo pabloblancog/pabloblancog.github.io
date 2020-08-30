@@ -23,10 +23,10 @@ In my experience, in the early morning, my brain feels fresher and less tired th
 Take some moments to master the platform you will be coding on.
 **Don't skip tutorials**. They will take less than a minute, and you will have a clear understanding about how it works.
 Some important things you should know before starting code is:
-- **How the challenge gets started**
-- **How to submit** your solution
-- How to check the **remaining time**
-- How to select the **programming language to code**
+- How the challenge gets started
+- How to submit your solution
+- How to check the remaining time
+- How to select the programming language to code
 
 Note: If allowed, **use your daily work tools**. Things like autocompletion and running/testing your code in a known environment is helpful.
 
