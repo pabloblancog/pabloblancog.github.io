@@ -1,7 +1,7 @@
 ---
 layout: post
 title: How to pass an online coding test
-published: false
+published: true
 ---
 
 ![alt text](https://source.unsplash.com/rgrZVTjuuPw/ "")
