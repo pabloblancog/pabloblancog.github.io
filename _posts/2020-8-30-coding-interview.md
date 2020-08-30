@@ -4,8 +4,6 @@ title: How to pass an online coding test
 published: true
 ---
 
-![alt text](https://source.unsplash.com/rgrZVTjuuPw/ "")
-
 During the process to be hired as a developer, you will be probably asked to pass an online coding test.
 
 No matter your experience, this kind of tests can be hard and stressful.
@@ -42,8 +40,6 @@ Note: If allowed, **use your daily work tools**. Things like autocompletion and 
 - **Have some water near you**: Being hydrated during the test will make you think better.
 - **Avoid interruptions**: go to the toilet before starting coding
 
-![alt text](https://source.unsplash.com/s9CC2SKySJM/ "")
-
 ## Code
 
 ### Understand the test problem
@@ -60,8 +56,6 @@ Note: If allowed, **use your daily work tools**. Things like autocompletion and 
 - **Test the performance**: Your code will be tested in extreme cases. Time measuring and performance testing could find issues in those cases.
 - **Make the code understandable**: Indentation, proper variables names, etc. If you are using an IDE that supports linting, use it.
 - **Control the remaining time**: Keep enough time to submit your solution without rushing.
-
-![alt text](https://source.unsplash.com/9EUwYOG3MVQ/ "")
 
 ## Before submit
 
