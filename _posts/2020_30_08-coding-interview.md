@@ -1,28 +1,34 @@
 ---
 layout: post
-title: How to pass an online coding challenge
+title: How to pass an online coding test
 published: false
 ---
 
+![alt text](https://source.unsplash.com/rgrZVTjuuPw/ "")
+
 During the process to be hired as a developer, you will be probably asked to pass an online coding test.
+
 No matter your experience, this kind of tests can be hard and stressful.
-In this article, I will give you some tips to improve your coding test.
+
+In this article, you will get some tips to make your coding test better.
 
 ### Before starting
 
-#### When to take the test
+#### When to take the test?
 Knowing your best time in the day to code is essential. Try to make the test at that time.
-In my experience, in the early morning my brain feels fresher and less tired than after several hours after waking up.
+In my experience, in the early morning, my brain feels fresher and less tired than any other moment during the day.
 
-#### Know the platform
-Take some moments to explore the platform. Some of these webs will show you a tutorial: Don't skip it.
-It will take less than a minute, and you will have a clear understanding about how it works.
+#### Master the coding platform
 
-Be sure you know things like:
-- **How to start** the challenge
+Take some moments to master the platform you will be coding on.
+**Don't skip tutorials**. They will take less than a minute, and you will have a clear understanding about how it works.
+Some important things you should know before starting code is:
+- **How the challenge gets started**
 - **How to submit** your solution
 - How to check the **remaining time**
 - How to select the **programming language to code**
+
+Note: If allowed, **use your daily work tools**. Things like autocompletion and running/testing your code in a known environment is helpful.
 
 #### Avoid distractions
 - **Use a single tab browser screen**. Close any other tabs that could distract you.
@@ -35,33 +41,31 @@ Be sure you know things like:
 - **Have some water near you**: Being hydrated during the test will make you think better.
 - **Avoid interruptions**: go to the toilet before starting coding
 
-(photo with caption)
+![alt text](https://source.unsplash.com/s9CC2SKySJM/ "")
 
-### Understand the proposed problem
+### Understand the test problem
 
-- **Read the instructions** very carefully.
-- If you are not native in the description language, **look for the word translations you don't know**.
-- Don't feel overhelmed if you see a large description. **Read step by step**, writing down the requirements of the problem.
-- Spend some time to **clarify every aspect of the problem**, before thinking in a solution.
+- **Read the instructions** very carefully. If you are not native in the description language, **look for the word translations you don't know**.
+- Don't feel overwhelmed if the test includes a large description. Read it **step by step**, writing down the requirements of the problem.
+- Before thinking in a solution, spend some time to **understand every aspect of the problem**.
+- **Identify the average cases, but also the edge ones**.
 
-### Coding the tests
-- **Where to code?** If allowed, use your preferred IDE. Autocompletion and running/testing in a known environment is key.
+### Let's code!
 
-- Try to **identify the average cases and go for it. Have the edge cases in mind, but include them later.**
-- Think about patterns you know that could fit the problem, **try different approaches**. Sometimes, reversing the problem is a good approach.
-- **Testing**: Making tests is key for a good solution.
-- **Work on the performance**: Your code will be tested with large data bunchs and edge cases. Making performance testing could find issues in these cases.
+- **Try different approaches**. Think about patterns that could fit. Sometimes, reversing the problem is a good approach.
+- Create a lot of test cases. **A great test plan is key for a great solution**.
+- **Work on the performance**: Your code will be tested in extreme cases. Time measuring and performance testing could find issues in those cases.
+- **Make the code understandable**: Indentation, proper variables names, etc. If you are using an IDE that supports linting, use it.
 
-- Are you feeling **tired or blocked?** Stand up for a few minutes, stretch, etc. Look for the way to **relax and reset your brain**.
+- Are you feeling **tired or blocked?** Stand up for a few minutes, stretch, etc.
 - **Control the remaining time**: Keep enough time to submit your solution without rushing.
 
-### Submission
+### Before submit
 
-Here is a list you cna check before submitting your solution:
+![alt text](https://source.unsplash.com/9EUwYOG3MVQ/ "")
 
-- Include a **readme / test explanation**.
-- If needed, **comment any aspect of your code that could be relevant for the reviewer.
-- Improve the **code readability**: Indentation, proper variables names, etc. If you are using an IDE that support linting, use it before submitting the code.
-- **Remove console output** from the code. They could make some tests failing by timeout errors.
+- Include a **readme / code explanation** for the reviewer.
+- If needed, **comment any part of the code that could be relevant for the reviewer**.
+- **Remove console outputs** from the code. They could make some tests failing by timeout errors.
 - In case you are coding on an external IDE, bring the latest code to the online platform before submitting.
 - **Relaunch the tests** to be sure they pass before submission.
