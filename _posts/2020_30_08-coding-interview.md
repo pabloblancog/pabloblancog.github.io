@@ -21,8 +21,8 @@ In my experience, in the early morning, my brain feels fresher and less tired th
 
 ### Master the coding platform
 
-Take some moments to master the platform you will be coding on.
-**Don't skip tutorials**. They will take less than a minute, and you will have a clear understanding about how it works.
+Take some moments to master the platform you will be coding.
+**Don't skip tutorials**. They will take less than a minute, and you will have a clear understanding of how it works.
 Some important things you should know before starting code is:
 - How the challenge gets started
 - How to submit your solution
@@ -38,7 +38,7 @@ Note: If allowed, **use your daily work tools**. Things like autocompletion and 
 
 ### Make your body ready
 - **Have some healthy food and plenty of water**, before coding. Your brain must be energized.
-- **A clean desk** will free your mind and let it to focus on the code task.
+- **A clean desk** will free your mind and let it focus on the code task.
 - **Have some water near you**: Being hydrated during the test will make you think better.
 - **Avoid interruptions**: go to the toilet before starting coding
 
@@ -50,7 +50,7 @@ Note: If allowed, **use your daily work tools**. Things like autocompletion and 
 
 - **Read the instructions** very carefully. If you are not native in the description language, **look for the word translations you don't know**.
 - Don't feel overwhelmed if the test includes a large description. Read it **step by step**, writing down the requirements of the problem.
-- Before thinking in a solution, spend some time to **understand every aspect of the problem**.
+- Before thinking about a solution, spend some time to **understand every aspect of the problem**.
 - **Identify the average cases, but also the edge ones**.
 
 ### When coding...
@@ -65,13 +65,13 @@ Note: If allowed, **use your daily work tools**. Things like autocompletion and 
 
 ## Before submit
 
-- Include a **readme / code explanation** for the reviewer.
-- If needed, **comment any part of the code that could be relevant for the reviewer**.
+- Include a **readme/code explanation** for the reviewer.
+- If needed, **comment on any part of the code that could be relevant for the reviewer**.
 - **Remove console outputs** from the code. They could make some tests failing by timeout errors.
-- In case you are coding on an external IDE, bring the latest code to the online platform before submitting.
-- **Relaunch the tests** to be sure they pass before submission.
+- In case you are coding on an external IDE, bring the latest code to the online platform before submitting it.
+- **Relaunch the tests** to be sure they pass before submitting it.
 
 ## Conclusion
 
-There is not a magical formula to pass coding tests, but taking in consideration things like the ones described before could make your test more achievable.
+There is not a magical formula to pass coding tests, but taking into consideration things like the ones described before could make your test more achievable.
 Happy coding!
