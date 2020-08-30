@@ -60,7 +60,7 @@ If allowed, use your daily work tools. Autocompletion and running/testing your c
 
 ## 3. Submit the code
 
-- Include a readme and inline comments that could be relevant for the reviewer.
+- Include inline comments that could be relevant for the reviewer.
 - Remove console outputs from the code. They could make some tests failing by timeout errors.
 - In case you have coded on an external programming tool, don't forget to bring the latest code to the online platform.
 - Re-run the tests to be sure they pass before submitting it.
