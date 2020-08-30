@@ -8,15 +8,7 @@ During the process to be hired as a developer, you will be probably asked to pas
 In this article, you will get some tips to make your coding test better.
 
 
-
 ## 1. Prepare the test
-
-### When to take the test?
-Knowing your best time to code during the day is essential.
-
-In my experience, in the early morning, my brain feels fresher and less tired than any other moment during the day.
-
-
 
 ### Master the coding platform
 
@@ -35,11 +27,11 @@ If allowed, use your daily work tools. Autocompletion and running/testing your c
 - Prepare your environment to be concentrated at your best (music, noises, chair, clothes, people around, etc.)
 
 ### Make your body ready
+- Select the best time for you to take the test. *In my experience, in the early morning, my brain feels fresher and less tired than any other moment during the day.*
 - Have some healthy food and plenty of water before coding. Your brain must be energized.
 - Clean your desk: It will free your mind and let it focus on coding.
 - Have some water near you: Being hydrated during the test will make you think better.
 - Avoid interruptions: Go to the toilet before starting.
-
 
 ## 2. Code the solution
 
