@@ -22,27 +22,27 @@ In my experience, in the early morning, my brain feels fresher and less tired th
 
 Take some moments to master the platform you will be coding. Don't skip tutorials.
 Some important things you should know before starting code is:
-- How the challenge gets started
-- How to submit your solution
-- How to check the remaining time
-- How to select the programming language to code
+- *How the challenge gets started*
+- *How to submit your solution*
+- *How to check the remaining time*
+- *How to select the programming language to code*
 
-Note: If allowed, **use your daily work tools**. Autocompletion and running/testing your code in a known environment is helpful.
+Note: If allowed, *use your daily work tools*. Autocompletion and running/testing your code in a known environment is helpful.
 
 
 
 ### Avoid distractions
-- **Use a single tab browser screen**. Close anything that could distract you.
-- **Turn off notifications**: Be focused on the task and try to avoid distractions: Turn off your mobile phone, watch, browser/OS notifications, etc.
-- **Prepare your environment** to be concentrated at your best.
+- *Use a single tab browser screen*. Close anything that could distract you.
+- *Turn off notifications*: Be focused on the task and try to avoid distractions: Turn off your mobile phone, watch, browser/OS notifications, etc.
+- *Prepare your environment* to be concentrated at your best.
 
 
 
 ### Make your body ready
-- **Have some healthy food and plenty of water before coding**. Your brain must be energized.
-- **A clean desk** will free your mind and let it focus on coding.
-- **Have some water near you**: Being hydrated during the test will make you think better.
-- **Avoid interruptions**: go to the toilet before starting.
+- *Have some healthy food and plenty of water before coding*. Your brain must be energized.
+- *A clean desk* will free your mind and let it focus on coding.
+- *Have some water near you*: Being hydrated during the test will make you think better.
+- *Avoid interruptions*: go to the toilet before starting.
 
 
 ## 2. Code the solution
