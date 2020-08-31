@@ -23,95 +23,56 @@ If allowed, use your daily work tools. Autocompletion and running/testing your c
 
 ### Avoid distractions
 
-- 📁 **Use a single tab browser screen**
+- 📁 **Use a single tab browser screen**: Close any other content that could distract you.
 
-Close any other content that could distract you.
+- 🔕 **Turn off notifications**: Go to airplane mode: Silent your mobile phone, watch, browser/OS notifications, etc.
 
-- 🔕 **Turn off notifications**
-
-Go to airplane mode: Silent your mobile phone, watch, browser/OS notifications, etc.
-
-- 🧘 **Prepare your environment**
-
-Setup your place to be concentrated at your best (music/silence, chair, comfortable clothes, etc.)
+- 🧘 **Prepare your environment**: Setup your place to be concentrated at your best (music/silence, chair, comfortable clothes, etc.)
 
 ### Make your body ready
 
-- 🌅 **Select the best time for you to take the test**
+- 🌅 **Select the best time for you to take the test**: In my experience, in the early morning my brain feels fresher and less tired than any other moment during the day.
 
-In my experience, in the early morning my brain feels fresher and less tired than any other moment during the day.
+- 🥗 **Have some healthy food and plenty of water before coding.**: This is a point you cannot forget: Your brain must be energized.
 
-- 🥗 **Have some healthy food and plenty of water before coding.**
+- 🧹 **Clean your desk**: Having a clear space to work will free your mind and let you focus on coding.
 
-This is a point you cannot forget: Your brain must be energized.
+- 🚰 **Have some water near you**: Being hydrated during the test will make you think better.
 
-- 🧹 **Clean your desk**
-
-Having a clear space to work will free your mind and let you focus on coding.
-
-- 🚰 **Have some water near you**
-
-Being hydrated during the test will make you think better.
-
-- 🚽 **Avoid interruptions**
-
-Go to the toilet before starting.
+- 🚽 **Avoid interruptions**: Go to the toilet before starting.
 
 ## 2. Code your solution
 
 ### Understanding the test problem
 
-- 📖 **Read the instructions nice and slow**
+- 📖 **Read the instructions nice and slow**: If case you are not a native speaker, look for the word translations you don't know.
 
-If case you are not a native speaker, look for the word translations you don't know.
+- 😌 **Don't feel overwhelmed about large descriptions**: Read them step by step writing down the requirements of the problem.
 
-- 😌 **Don't feel overwhelmed about large descriptions**
-
-Read them step by step writing down the requirements of the problem.
-
-- ⛰️ **Understand every aspect of the problem**
-Identify the average cases, but also the edge ones.
+- ⛰️ **Understand every aspect of the problem**: Identify the average cases, but also the edge ones.
 
 ### When coding...
 
-- 💾 **Try different approaches**
+- 💾 **Try different approaches**: Think about patterns that could fit. Sometimes, reversing the problem is a good approach.
 
-Think about patterns that could fit. Sometimes, reversing the problem is a good approach.
+- 🧪 **Define a great test plan**: A good test plan is composed by many average cases, but also by edge cases.
 
-- 🧪 **Define a great test plan**
+- 💯 **Work on code performance**: Your solution will be tested in extreme cases, so time measuring and performance testing could find issues in those cases before submitting your solution.
 
-A good test plan is composed by many average cases, but also by edge cases.
+- 🔍 **Make the code readable and understandable**: Use indentation, proper variables names, etc. If you are using an IDE that supports linting, use it.
 
-- 💯 **Work on code performance**
-
-Your solution will be tested in extreme cases, so time measuring and performance testing could find issues in those cases before submitting your solution.
-
-- 🔍 **Make the code readable and understandable**
-
-Use indentation, proper variables names, etc. If you are using an IDE that supports linting, use it.
-
-- ⏱️ **Keep the remaining time under control**
-
-Save enough time to submit your solution without rushing.
+- ⏱️ **Keep the remaining time under control**: Save enough time to submit your solution without rushing.
 
 
 ## 3. Submit the code
 
-- 📝 **Include comments**
+- 📝 **Include comments**: Some inline comments on relevant code lines can be helpful for the reviewer. You can also include a header comment to explain the decisions you took.
 
-Some inline comments on relevant code lines can be helpful for the reviewer. You can also include a header comment to explain the decisions you took.
+- 👣 **Remove console outputs from the code**: The 'print' statements are expensive in time consumption, so they can make the tests failing by timeout errors.
 
-- 👣 **Remove console outputs from the code**
+- ✨ **Take your latest code online**: In case you have coded on an external programming tool, don't forget to bring the latest code to the online platform.
 
-The 'print' statements are expensive in time consumption, so they can make the tests failing by timeout errors.
-
-- ✨ **Take your latest code online**
-
-In case you have coded on an external programming tool, don't forget to bring the latest code to the online platform.
-
-- 🏅 **Re-run the tests**
-
-After all the hard work, be sure they pass before submitting it.
+- 🏅 **Re-run the tests**: After all the hard work, be sure they pass before submitting it.
 
 
 ## Conclusion
