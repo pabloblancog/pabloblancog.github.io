@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Coding tests: Tips to succeed
+title: Coding tests - Tips to succeed
 published: true
 ---
 
