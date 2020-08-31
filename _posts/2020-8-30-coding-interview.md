@@ -1,6 +1,6 @@
 ---
 layout: post
-title: How to pass an online coding test
+title: Coding tests: Tips to succeed
 published: true
 ---
 
