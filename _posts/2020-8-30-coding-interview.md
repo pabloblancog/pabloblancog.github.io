@@ -4,7 +4,7 @@ title: How to pass an online coding test
 published: true
 ---
 
-During the process to be hired as a developer, you will be probably asked to pass an online coding test. No matter your experience, this kind of tests can be hard and stressful. 
+During the process of being hired as a developer, you will be probably asked to pass an online coding test. No matter your experience, this kind of tests can be hard and stressful. 
 In this article, you will get some tips to make your coding test better.
 
 
@@ -12,7 +12,7 @@ In this article, you will get some tips to make your coding test better.
 
 ### Master the coding platform
 
-Take some moments to master the platform you will be coding. Don't skip tutorials.
+Take some moments to know the coding platform. Please, don't skip tutorials.
 Some important things you should know before starting code is:
 - How the challenge gets started
 - How to submit your solution
@@ -22,30 +22,32 @@ Some important things you should know before starting code is:
 If allowed, use your daily work tools. Autocompletion and running/testing your code in a known environment is helpful.
 
 ### Avoid distractions
+
 - **Use a single tab browser screen**
 
-Close anything that could distract you.
+Close any other content that could distract you.
 
 - **Turn off notifications**
 
-Silent your mobile phone, watch, browser/OS notifications, etc.
+Go to airplane mode: Silent your mobile phone, watch, browser/OS notifications, etc.
 
 - **Prepare your environment**
 
-Setup your place to be concentrated at your best (music, noises, chair, clothes, people around, etc.)
+Setup your place to be concentrated at your best (music/silence, chair, comfortable clothes, etc.)
 
 ### Make your body ready
+
 - **Select the best time for you to take the test**
 
-In my experience, in the early morning, my brain feels fresher and less tired than any other moment during the day.
+In my experience, in the early morning my brain feels fresher and less tired than any other moment during the day.
 
 - **Have some healthy food and plenty of water before coding.**
 
-This is a point you cannot forget. Your brain must be energized.
+This is a point you cannot forget: Your brain must be energized.
 
 - **Clean your desk**
 
-It will free your mind and let it focus on coding.
+Having a clear space to work will free your mind and let you focus on coding.
 
 - **Have some water near you**
 
@@ -55,9 +57,9 @@ Being hydrated during the test will make you think better.
 
 Go to the toilet before starting.
 
-## 2. Code the solution
+## 2. Code your solution
 
-### Understand the test problem
+### Understanding the test problem
 
 - **Read the instructions nice and slow**
 
@@ -65,7 +67,7 @@ If case you are not a native speaker, look for the word translations you don't k
 
 - **Don't feel overwhelmed about large descriptions**
 
-Read them step by step, writing down the requirements of the problem.
+Read them step by step writing down the requirements of the problem.
 
 - **Understand every aspect of the problem**
 Identify the average cases, but also the edge ones.
@@ -78,30 +80,30 @@ Think about patterns that could fit. Sometimes, reversing the problem is a good 
 
 - **Define a great test plan**
 
-Including average and edge cases.
+A good test plan is composed by many average cases, but also by edge cases.
 
 - **Work on code performance**
 
-Your solution will be tested in extreme cases, so time measuring and performance testing could find issues in those cases.
+Your solution will be tested in extreme cases, so time measuring and performance testing could find issues in those cases before submitting your solution.
 
-- **Make the code understandable**
+- **Make the code readable and understandable**
 
-Indentation, proper variables names, etc. If you are using an IDE that supports linting, use it.
+Use indentation, proper variables names, etc. If you are using an IDE that supports linting, use it.
 
-- **Control the remaining time**
+- **Keep the remaining time under control**
 
-Keep enough time to submit your solution without rushing.
+Save enough time to submit your solution without rushing.
 
 
 ## 3. Submit the code
 
-- **Include inline comments**
+- **Include comments**
 
-Some comments on relevant code lines can be helpful for the reviewer.
+Some inline comments on relevant code lines can be helpful for the reviewer. You can also include a header comment to explain the decisions you took.
 
 - **Remove console outputs from the code**
 
-They could make some tests failing by timeout errors.
+The 'print' statements are expensive in time consumption, so they can make the tests failing by timeout errors.
 
 - **Take your latest code online**
 
@@ -114,5 +116,6 @@ After all the hard work, be sure they pass before submitting it.
 
 ## Conclusion
 
-There is not a magical formula to pass coding tests, but taking into consideration things like the ones described before could make your test more achievable.
-Happy coding!
+There is not a magical formula to pass coding tests, but taking into consideration things like these will make your test more achievable.
+
+Do you have any comment or suggestion to these tips? Contact me at: [pabloblancogonzalez@gmail.com](pabloblancogonzalez@gmail.com)
