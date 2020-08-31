@@ -40,6 +40,7 @@ If allowed, use your daily work tools. Autocompletion and running/testing your c
 - 🚰 **Have some water near you**: Being hydrated during the test will make you think better.
 
 - 🚽 **Avoid interruptions**: Go to the toilet before starting.
+<br />
 
 ## 2. Code your solution
 
@@ -62,7 +63,7 @@ If allowed, use your daily work tools. Autocompletion and running/testing your c
 - 🔍 **Make the code readable and understandable**: Use indentation, proper variables names, etc. If you are using an IDE that supports linting, use it.
 
 - ⏱️ **Keep the remaining time under control**: Save enough time to submit your solution without rushing.
-
+<br />
 
 ## 3. Submit the code
 
@@ -73,7 +74,7 @@ If allowed, use your daily work tools. Autocompletion and running/testing your c
 - ✨ **Take your latest code online**: In case you have coded on an external programming tool, don't forget to bring the latest code to the online platform.
 
 - 🏅 **Re-run the tests**: After all the hard work, be sure they pass before submitting it.
-
+<br />
 
 ## Conclusion
 
