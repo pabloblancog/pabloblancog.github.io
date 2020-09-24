@@ -4,11 +4,7 @@ title: Better REST API management in Swift
 published: true
 ---
 
-Spending time developing new features is great.
-
-Spending unnecessary time updating your REST API endpoints is not.
-
-But… how to avoid it?
+Spending time developing new features is great. Spending unnecessary time updating your REST API endpoints is not. But… how to avoid it?
 
 
 A non-unified approach to managing endpoints can provoke many issues if API updates imply a lot of similar, repetitive code changes.
