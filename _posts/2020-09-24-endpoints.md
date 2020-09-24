@@ -12,6 +12,7 @@ But… how to avoid it?
 
 
 A non-unified approach to managing endpoints can provoke many issues if API updates imply a lot of similar, repetitive code changes.
+
 In this article, you will understand how to structure your REST API endpoint configuration in a better way, by using some swifty techniques.
 
 
@@ -49,7 +50,7 @@ Ok, the code works. But this implementation has some underlying issues:
 - *What if you have many of these endpoints and need to upgrade your API version?* Find and update every declared URL.
 - *What if you need to include some new authentication fields?* Update header fields on every endpoint declaration.
 
-> These problems can be resolved by using a good **REST API endpoint configuration**.
+These problems can be resolved by using a good **REST API endpoint configuration**.
 
 ```swift
 protocol Endpoint {
@@ -70,7 +71,7 @@ extension Endpoint {
 
 ## 1. Endpoint definition
 This is all about endpoints, so it makes sense to create an `Endpoint` protocol that defines all its content.
-This `Endpoint` declaration can be extended to add further details and needs, p.eg. security configuration.
+> This `Endpoint` declaration can be extended to add further details and needs, p.eg. security configuration.
 
 ## 2. Endpoint cases
 The app needs to get users from a concrete city, so I need to define only one case:
@@ -179,7 +180,13 @@ Worker().getUsers(endpoint: usersEndpoint) { response, error in
 ## 5. Add a new endpoint
 Everything is working nicely. Now it’s time to add new features to our app. In this case, we want to add users to the database. Let’s add the new case to the endpoints enumeration.
 
-A new case for creating users is added
+```swift
+enum EndpointCases {
+    case getUsers(city: String)
+    case addUser(name: String, surname: String, city: String)
+}
+```
+
 The compiler warns us to fill the required data in our `EndpointCases` struct. Our new endpoint is a `POST` endpoint, so we also include some `body` data.
 
 ```swift
@@ -261,7 +268,59 @@ We can make some improvements to our `Worker` class:
 - Reusing the generic request function to be used by every endpoint, making the function calls clearer and more understandable.
 - `func request()` is now private so the only point to access the `Worker` right now is the designated methods `getUsers()` and `addUser()`.
 
+```swift
+class Worker {
+	
+	func getUsers(from city: String, completion: @escaping (URLResponse?, Error?) -> Void) {
+		let usersEndpoint = EndpointCases.getUsers(city: city)
+		request(endpoint: usersEndpoint) { response, error in
+			completion(response, error)
+		}
+	}
+
+	func addUser(name: String, surname: String, city: String, completion: @escaping (URLResponse?, Error?) -> Void) {
+		let addUserEndpoint = EndpointCases.addUser(name: name, surname: surname, city: city)
+		request(endpoint: addUserEndpoint) { response, error in
+			completion(response, error)
+		}
+	}
+
+	private func request(endpoint: Endpoint, completion: @escaping (URLResponse?, Error?) -> Void) {
+
+		let session = URLSession.shared
+
+		// URL
+		let url = URL(string: endpoint.url)!
+		var urlRequest = URLRequest(url: url)
+
+		// HTTP Method
+		urlRequest.httpMethod = endpoint.httpMethod
+
+		// Header fields
+		endpoint.headers?.forEach({ header in
+			urlRequest.setValue(header.value as? String, forHTTPHeaderField: header.key)
+		})
+
+		let task = session.dataTask(with: urlRequest) { data, response, error in
+			completion(response, error)
+		}
+
+		task.resume()
+	}
+}
+```
+
 Now the calls to the `Worker` class will be:
+
+```swift
+Worker().getUsers(from: "Madrid") { response, error in
+    print(response)
+}
+
+Worker().addUser(name: "Pablo", surname: "Blanco", city: "Barcelona") { response, error in
+    print(response)
+}
+```
 
 ## Conclusion
 Swift provides some good techniques that make API configurations a little bit cleaner and understandable.
